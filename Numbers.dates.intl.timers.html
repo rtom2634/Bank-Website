@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Numbers.
+    //base 10 -> 0-9.
+    //binary base 2 -> 0-1
+    //easy way to conert string to number is by adding a + sign before string.
+    //ex -> a = +"23";
+    // num/0 -> infinity
+    //0/num -> 0
+
+    //Parsing.
+    console.log(Number.parseInt('30'))
+    console.log(Number.parseFloat('1.333'))
+
+    console.log(Number.isNaN('heya'))
+    console.log(23 / 0)
+    console.log(0 / 23)
+
+    // checking if value is number.
+    console.log(Number.isFinite(2.3))
+
+    //
+    console.log(Math.max(1, 55, 66))//same we have min.
+
+    //Rounding integers.
+    console.log(Math.trunc(23.33))
+    console.log(Math.round(23.8))  //will always round to the closest integer
+    console.log(Math.ceil(23.1)) // will always round the the higher integer
+    console.log(Math.floor(23.99)) //will always round to the lower integer
+
+    // Rounding Decimals.
+    console.log((2.8).toFixed(0));
+    console.log((2.7).toFixed(3))
+
+    //Remainder operator.
+    console.log(5 % 2); //1.
+    const isEven = (n) => {
+      console.log(n % 2 === 0);
+    }
+    isEven(343);
+    isEven(242)
+
+    // Numeric separators.
+    const largeNum = 287_0450_000_0000;
+    console.log(largeNum)
+
+    // BigInt;
+    //special type of integer introduced in ES2020.
+    console.log(2 ** 64)
+    console.log(Number.MAX_SAFE_INTEGER)//13digit number
+    console.log(Number.MIN_SAFE_INTEGER)//-ve 13 digit number
+    // JS cannot handle the number greater than max safe correctly. In situatiions where we need larger number we use BigInt.
+
+    console.log(367959473726375969543321345667n) //n converts the large number to bigint.
+    //cannot mix integrets with bigInts as it will throw error.
+    //console.log(20n * 20)
+
+    //exceptions
+    console.log(20n > 15)  //bigint works with logical operators and ===/==
+    console.log(20n === 20) // false as type is different. one is a num and other bigint.
+
+    //Dates and time.
+
+    // create a date.
+    //1st way.
+    const now = new Date();
+    console.log(now)
+
+    //2nd way is to parse the date from a date string.
+    console.log(new Date('Fri Jun 02 2023 14:38:55'))
+    console.log(new Date('December 24, 2023'))
+
+    console.log(new Date(2023, 08, 20, 17, 30, 05))
+    // convert days to millli seconds.
+    console.log(new Date(19465 * 24 * 60 * 60 * 1000));
+
+    //Working with dates.
+    const future = new Date(2023, 08, 20, 17, 30)
+    console.log(future.getFullYear())  // get full year gives the full year.
+    console.log(future.getMonth()) // get month 
+    console.log(future.getHours())// get hours.
+    console.log(future.getDay())
+    console.log(future.toISOString());
+    console.log(future.getTime())
+    console.log(new Date(1695211200000))
+
+
+    //get current timeStamp
+    console.log(Date.now())
+
+    console.log(new Date(1685699140883))
+
+    let html;
+    // setInterval;
+    setInterval(() => {
+      const date = new Date();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const seconds = date.getSeconds();
+      console.log(`${hours}: ${minutes}: ${seconds}`)
+      html = document.querySelector('.js-div');
+      html.innerText = `${hours}: ${minutes}: ${seconds}`
+    }, 1000)
+
+
+
+
+
+  </script>
+</body>
+<div class="js-div"></div>
+
+</html>
